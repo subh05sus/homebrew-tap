@@ -5,21 +5,21 @@
 class Porthole < Formula
   desc "A port kill switch and service viewer for your terminal."
   homepage "https://github.com/subh05sus/porthole"
-  version "1.1.0"
+  version "1.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/subh05sus/porthole/releases/download/v1.1.0/porthole_1.1.0_darwin_amd64.tar.gz"
-      sha256 "26d769562762dbe36bd083f1b1d8ea6eeec3236d84e50a654879361e8058ba05"
+      url "https://github.com/subh05sus/porthole/releases/download/v1.2.0/porthole_1.2.0_darwin_amd64.tar.gz"
+      sha256 "49c5e6c40a68809c8a7e9f02fae8ed2752b7592067d9eda81651d0c331f0a513"
 
       define_method(:install) do
         bin.install "porthole"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/subh05sus/porthole/releases/download/v1.1.0/porthole_1.1.0_darwin_arm64.tar.gz"
-      sha256 "207f38ac5d7b5bfc7cd3d31eca03c9b227005120697381a2d79876190ed7a840"
+      url "https://github.com/subh05sus/porthole/releases/download/v1.2.0/porthole_1.2.0_darwin_arm64.tar.gz"
+      sha256 "0ef3a6ac92e5dd795c94bc30baecb8a4fdf008fb33bb21c70861fc1bcf0d17a5"
 
       define_method(:install) do
         bin.install "porthole"
@@ -29,15 +29,15 @@ class Porthole < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/subh05sus/porthole/releases/download/v1.1.0/porthole_1.1.0_linux_amd64.tar.gz"
-      sha256 "6d1c83d9e393bcfa0f27eaad3282ca2de10c752cdc314555c34984aafc0abe77"
+      url "https://github.com/subh05sus/porthole/releases/download/v1.2.0/porthole_1.2.0_linux_amd64.tar.gz"
+      sha256 "ce87507edc42fb626fe79c6829804ca53faa94bc3143e40c7478f670cfc4e9a6"
       define_method(:install) do
         bin.install "porthole"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/subh05sus/porthole/releases/download/v1.1.0/porthole_1.1.0_linux_arm64.tar.gz"
-      sha256 "1f8d7e9ca5859d2b2d595692932b51033171415148d1fef8ffbd82705522dd8b"
+      url "https://github.com/subh05sus/porthole/releases/download/v1.2.0/porthole_1.2.0_linux_arm64.tar.gz"
+      sha256 "ea322492f18a103e8aa08472641475d091c09af108ea6ac9085d301e4f5cfc17"
       define_method(:install) do
         bin.install "porthole"
       end
