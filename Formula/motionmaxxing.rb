@@ -2,8 +2,8 @@
 class Motionmaxxing < Formula
   desc "Raw talking-head take in, finished short-form video out, on your own Claude plan"
   homepage "https://github.com/subh05sus/motionmaxxing"
-  url "https://github.com/subh05sus/motionmaxxing/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "fdc7e22b15f694d78636467aff82009644913f9fae8d563293498bf6adf1111b"
+  url "https://github.com/subh05sus/motionmaxxing/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "a6ed30ba290bda6863241873b6cb57ecb4f796ac3e6da8809aeff53e7d27344f"
   license "MIT"
   head "https://github.com/subh05sus/motionmaxxing.git", branch: "main"
 
