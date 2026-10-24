@@ -1,25 +1,29 @@
-# motionmaxxing: brew install subh05sus/tap/motionmaxxing (scripts/release.sh in the repo updates url and sha256)
+# motionmaxxing: brew tap subh05sus/tap && brew install motionmaxxing
+# The built package from the public releases repo; scripts/release.sh in the (private) source repo updates url and
+# sha256 for every release.
 class Motionmaxxing < Formula
   desc "Raw talking-head take in, finished short-form video out, on your own Claude plan"
-  homepage "https://github.com/subh05sus/motionmaxxing"
-  url "https://github.com/subh05sus/motionmaxxing/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "024ad517c74e708d5218bbb91a54e853507109812e22b184d775c2d6ec9f73a3"
-  license "MIT"
-  head "https://github.com/subh05sus/motionmaxxing.git", branch: "main"
+  homepage "https://github.com/subh05sus/motionmaxxing-releases"
+  url "https://github.com/subh05sus/motionmaxxing-releases/releases/download/v0.14.0/motionmaxxing-0.14.0-macos-arm64.tar.gz"
+  version "0.14.0" of arm64 for the version
+  sha256 "4f649ed2497345ffee0b272a5542cd70270c4d4708e0a0469de6775a5a803526"
+  license :cannot_represent
 
+  depends_on arch: :arm64
   depends_on "ffmpeg"
   depends_on :macos
-  depends_on "node"
+  depends_on "node@24"
   depends_on "python@3.12"
-  depends_on "whisper-cpp"
+  depends_on "whisper.cpp"
 
   def install
     libexec.install Dir["*"]
+    node = formula_opt_bin("node@24")
+    # the Agent SDK (Claude Code, which the studio runs on the user's own login), at the version the package pins
     cd libexec do
-      system "npm", "ci", "--no-audit", "--no-fund"
-      system "npm", "run", "build"
+      system node/"npm", "ci", "--omit=dev", "--no-audit", "--no-fund", "--loglevel=error"
     end
-    bin.install_symlink libexec/"bin/mm"
+    (bin/"mm").write_env_script libexec/"bin/mm", MM_PATH: "#{node}:#{formula_opt_libexec("python@3.12")}/bin"
   end
 
   def caveats
@@ -34,6 +38,7 @@ class Motionmaxxing < Formula
   end
 
   test do
-    assert_match "mm login", shell_output("#{bin}/mm help 2>&1", 2)
+    assert_match version.to_s, shell_output("#{bin}/mm --version")
+    system bin/"mm", "check"
   end
 end
