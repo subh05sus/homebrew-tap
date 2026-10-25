@@ -4,9 +4,9 @@
 class Motionmaxxing < Formula
   desc "Raw talking-head take in, finished short-form video out, on your own Claude plan"
   homepage "https://github.com/subh05sus/motionmaxxing-releases"
-  url "https://github.com/subh05sus/motionmaxxing-releases/releases/download/v0.21.0/motionmaxxing-0.21.0-macos-arm64.tar.gz"
-  version "0.21.0" # said, not read from the url: brew takes the 64 of arm64 for the version
-  sha256 "7371bfd4214a4de36c47924311984f66830f392fb738cf644ec36ce77bb8d113"
+  url "https://github.com/subh05sus/motionmaxxing-releases/releases/download/v0.22.0/motionmaxxing-0.22.0-macos-arm64.tar.gz"
+  version "0.22.0" # said, not read from the url: brew takes the 64 of arm64 for the version
+  sha256 "a1bb2d0faaa63c606b3d60228e892b6220c3427026ddb41133df88acc24bb2ea"
   license :cannot_represent
 
   depends_on arch: :arm64
@@ -19,7 +19,8 @@ class Motionmaxxing < Formula
   def install
     libexec.install Dir["*"]
     node = formula_opt_bin("node@24")
-    # the Agent SDK (Claude Code, which the studio runs on the user's own login), at the version the package pins
+    # the Agent SDK (Claude Code, which the studio runs on the user's own login) and puppeteer-core (the demo
+    # recorder), at the versions the package pins
     cd libexec do
       system node/"npm", "ci", "--omit=dev", "--no-audit", "--no-fund", "--loglevel=error"
     end
