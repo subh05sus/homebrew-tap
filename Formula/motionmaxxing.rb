@@ -1,12 +1,12 @@
-# motionmaxxing: brew install subh05sus/tap/motionmaxxing (naming the tap trusts it; then brew upgrade motionmaxxing)
+# motionmaxxing: brew install subh05sus/tap/motionmaxxing (naming the tap trusts it; then brew update && brew upgrade motionmaxxing)
 # The built package from the public releases repo; scripts/release.sh in the (private) source repo updates url and
 # sha256 for every release.
 class Motionmaxxing < Formula
   desc "Raw talking-head take in, finished short-form video out, on your own Claude plan"
   homepage "https://github.com/subh05sus/motionmaxxing-releases"
-  url "https://github.com/subh05sus/motionmaxxing-releases/releases/download/v0.22.0/motionmaxxing-0.22.0-macos-arm64.tar.gz"
-  version "0.22.0" # said, not read from the url: brew takes the 64 of arm64 for the version
-  sha256 "a1bb2d0faaa63c606b3d60228e892b6220c3427026ddb41133df88acc24bb2ea"
+  url "https://github.com/subh05sus/motionmaxxing-releases/releases/download/v0.22.1/motionmaxxing-0.22.1-macos-arm64.tar.gz"
+  version "0.22.1" # said, not read from the url: brew takes the 64 of arm64 for the version
+  sha256 "7a1cf818b38dcc4174d8db5e3e0d49aae39b17f11698209faad035a9a9a2a60b"
   license :cannot_represent
 
   depends_on arch: :arm64
