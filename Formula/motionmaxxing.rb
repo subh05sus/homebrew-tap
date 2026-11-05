@@ -4,9 +4,9 @@
 class Motionmaxxing < Formula
   desc "Raw talking-head take in, finished short-form video out, on your own Claude plan"
   homepage "https://github.com/subh05sus/motionmaxxing-releases"
-  url "https://github.com/subh05sus/motionmaxxing-releases/releases/download/v0.66.3/motionmaxxing-0.66.3-macos-arm64.tar.gz"
-  version "0.66.3" # said, not read from the url: brew takes the 64 of arm64 for the version
-  sha256 "1dd6b37e1b709a43e0e31a23b0821a93d0862621496610aae182605b3f2651fd"
+  url "https://github.com/subh05sus/motionmaxxing-releases/releases/download/v0.66.4/motionmaxxing-0.66.4-macos-arm64.tar.gz"
+  version "0.66.4" # said, not read from the url: brew takes the 64 of arm64 for the version
+  sha256 "9dadbcd3fd01c21ea4827e4ae2b4d76ee68b9db08275687a4f374f61af43eb2f"
   license :cannot_represent
 
   depends_on arch: :arm64
@@ -17,7 +17,8 @@ class Motionmaxxing < Formula
   depends_on "whisper.cpp"
 
   def install
-    libexec.install Dir["*"]
+    # Dir["*"] skips top-level dotfiles, so name the agent-barrier .re-deny too (the one under plugin/ comes with the dir)
+    libexec.install Dir["*"] + Dir[".re-deny"]
     node = formula_opt_bin("node@24")
     # the Agent SDK (Claude Code, which the studio runs on the user's own login) and puppeteer-core (the demo
     # recorder), at the versions the package pins
