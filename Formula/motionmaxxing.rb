@@ -56,10 +56,10 @@ end
 class Motionmaxxing < Formula
   desc "Raw talking-head take in, finished short-form video out, on your own Claude plan"
   homepage "https://github.com/subh05sus/motionmaxxing-releases"
-  url "https://motionmaxxing.thatdevguy.in/api/download/0.73.2/motionmaxxing-0.73.2-macos-arm64.tar.gz",
+  url "https://motionmaxxing.thatdevguy.in/api/download/0.73.3/motionmaxxing-0.73.3-macos-arm64.tar.gz",
       using: MotionmaxxingDownloadStrategy
-  version "0.73.2" # said, not read from the url: brew takes the 64 of arm64 for the version
-  sha256 "ba4232a66e39d5b9ffe3f84202013a92f69e7bc9b61482eb105dc66140e530e8"
+  version "0.73.3" # said, not read from the url: brew takes the 64 of arm64 for the version
+  sha256 "69dc37deea5490e7caeddffd529f7dae6119bbd9d0a4677bff6814fc4b8787ac"
   license :cannot_represent
 
   depends_on arch: :arm64
